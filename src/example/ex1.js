@@ -25,7 +25,7 @@ export default () => {
   let sprite
 
   loader
-  .add('cat', './image/cat.png')
+  .add('cat', 'assets/cat.png')
   .load(function () {
     sprite = new Sprite(loader.resources['cat'].texture)
     app.stage.addChild(sprite)

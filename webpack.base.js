@@ -37,6 +37,11 @@ module.exports = {
       name: "runtime"
     }
   },
+  resolve: {
+    alias: {
+      assets: path.resolve(__dirname, './src/assets')
+    }
+  },
   module: {
     rules: [
       {
@@ -69,8 +74,8 @@ module.exports = {
     }),
     new CopyWebpackPlugin([
       {
-        from: 'src/image',
-        to: 'image/',
+        from: 'src/assets',
+        to: 'assets/',
       }
     ])
   ],
