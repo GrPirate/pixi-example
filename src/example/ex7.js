@@ -22,9 +22,9 @@ export default () => {
     cat = new PIXI.Sprite(PIXI.loader.resources['assets/cat.png'].texture)
 
     app.stage.addChild(cat)
-    cat.y = 96;
-    cat.vx = 0;
-    cat.vy = 0;
+    cat.y = 0;
+    cat.vx = 5;
+    cat.vy = 5;
     console.log(cat.width, cat.height)
 
     let left = keyboard(37)
@@ -81,13 +81,30 @@ export default () => {
       }
     }
 
-    state = play
+    state = auto
 
     app.ticker.add(delta => gameLoop(delta))
   }
 
   function gameLoop (delta) {
     state(delta)
+    
+  }
+
+  /**
+   * 自动运动
+   * @param {*} delta 
+   */
+  function auto (delta) {
+    if (cat.x < 0) {
+      cat.vx = 5
+      cat.vy = 5
+    } else if (cat.x > 448) {
+      cat.vx = -5
+      cat.vy = -5
+    }
+    cat.x += cat.vx
+    cat.y += cat.vy
   }
 
   function play (delta) {

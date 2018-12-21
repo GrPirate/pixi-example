@@ -6,8 +6,9 @@ import EX4 from './example/ex4'
 import EX5 from './example/ex5'
 import EX6 from './example/ex6'
 import EX7 from './example/ex7'
+import EX8 from './example/ex8'
 
 // EX1()
 // EX2()
-EX7()
+EX8()
 

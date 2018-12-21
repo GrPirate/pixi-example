@@ -4,6 +4,9 @@ const { Application, Container, loader, Sprite, Rectangle} = PIXI
 const resources = PIXI.loader.resources
 const TextureCache = PIXI.utils.TextureCache
 
+/**
+ * 寻宝游戏
+ */
 export default () => {
   let app = new Application({
     width: 512,
