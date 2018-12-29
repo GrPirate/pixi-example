@@ -10,8 +10,9 @@ import EX8 from './example/ex8'
 import EX9 from './example/ex9'
 import EX10 from './example/ex10'
 import EX11 from './example/ex11'
+import EX12 from './example/ex12'
 
 // EX1()
 // EX2()
-EX11()
+EX12()
 
