@@ -109,7 +109,7 @@ export default () => {
     outerBar.drawRect(0, 0, 128, 8)
     outerBar.endFill()
     healthBar.addChild(outerBar)
-    healthBar.outer = outerBar;
+    healthBar.outer = outerBar
     
     // 为游戏添加一些信息文本
     let style = new PIXI.TextStyle({
@@ -211,33 +211,33 @@ export default () => {
     if(explorerHit) {
       explorerHit = false
       // 使探险家半透明
-      explorer.alpha = 0.5;
+      explorer.alpha = 0.5
     
       // 将血槽内矩形的宽度减少1个像素 
-      healthBar.outer.width -= 1;
+      healthBar.outer.width -= 1
     
     } else {
     
       // 如果未命中，则使探险家完全不透明(不透明)。 
-      explorer.alpha = 1;
+      explorer.alpha = 1
     }
 
     // 检查探险者和宝藏之间的碰撞。
     if (hitTestRectangle(explorer, treasure)) {
-      treasure.x = explorer.x + 8;
-      treasure.y = explorer.y + 8;
+      treasure.x = explorer.x + 8
+      treasure.y = explorer.y + 8
     }
 
     // 检查门和宝藏之间的碰撞。
     if (hitTestRectangle(treasure, door)) {
       state = end;
-      message.text = "You won!";
+      message.text = "You won!"
     }
 
     // 决定比赛是赢了还是输了 
     if (healthBar.outer.width < 0) {
       state = end;
-      message.text = "You lost!";
+      message.text = "You lost!"
     }
 
     // 当游戏结束时，将游戏“State”改为“End” 
@@ -261,43 +261,43 @@ export default () => {
     //Right
     if (sprite.x + sprite.width > container.width) {
       sprite.x = container.width - sprite.width;
-      collision = "right";
+      collision = "right"
     }
   
     //Bottom
     if (sprite.y + sprite.height > container.height) {
       sprite.y = container.height - sprite.height;
-      collision = "bottom";
+      collision = "bottom"
     }
     return collision
   }
 
   function hitTestRectangle (r1, r2) {
     //Define the variables we'll need to calculate
-    let hit, combinedHalfWidths, combinedHalfHeights, vx, vy;
+    let hit, combinedHalfWidths, combinedHalfHeights, vx, vy
 
     //hit will determine whether there's a collision
-    hit = false;
+    hit = false
 
     //Find the center points of each sprite
-    r1.centerX = r1.x + r1.width / 2;
-    r1.centerY = r1.y + r1.height / 2;
-    r2.centerX = r2.x + r2.width / 2;
-    r2.centerY = r2.y + r2.height / 2;
+    r1.centerX = r1.x + r1.width / 2
+    r1.centerY = r1.y + r1.height / 2
+    r2.centerX = r2.x + r2.width / 2
+    r2.centerY = r2.y + r2.height / 2
 
     //Find the half-widths and half-heights of each sprite
-    r1.halfWidth = r1.width / 2;
-    r1.halfHeight = r1.height / 2;
-    r2.halfWidth = r2.width / 2;
-    r2.halfHeight = r2.height / 2;
+    r1.halfWidth = r1.width / 2
+    r1.halfHeight = r1.height / 2
+    r2.halfWidth = r2.width / 2
+    r2.halfHeight = r2.height / 2
 
     //Calculate the distance vector between the sprites
-    vx = r1.centerX - r2.centerX;
-    vy = r1.centerY - r2.centerY;
+    vx = r1.centerX - r2.centerX
+    vy = r1.centerY - r2.centerY
 
     //Figure out the combined half-widths and half-heights
-    combinedHalfWidths = r1.halfWidth + r2.halfWidth;
-    combinedHalfHeights = r1.halfHeight + r2.halfHeight;
+    combinedHalfWidths = r1.halfWidth + r2.halfWidth
+    combinedHalfHeights = r1.halfHeight + r2.halfHeight
 
     //Check for a collision on the x axis
     if (Math.abs(vx) < combinedHalfWidths) {
@@ -306,30 +306,30 @@ export default () => {
       if (Math.abs(vy) < combinedHalfHeights) {
 
         //There's definitely a collision happening
-        hit = true;
+        hit = true
       } else {
 
         //There's no collision on the y axis
-        hit = false;
+        hit = false
       }
     } else {
 
       //There's no collision on the x axis
-      hit = false;
+      hit = false
     }
 
     //`hit` will be either `true` or `false`
-    return hit;
+    return hit
   }
 
   function gameLoop(delta){
 
     //Update the current game state:
-    state(delta);
+    state(delta)
   }
 
   function end() {
-    gameScene.visible = false;
-    gameOverScene.visible = true;
+    gameScene.visible = false
+    gameOverScene.visible = true
   }
 }
