@@ -12,7 +12,33 @@ import EX10 from './example/ex10'
 import EX11 from './example/ex11'
 import EX12 from './example/ex12'
 
-// EX1()
-// EX2()
-EX11()
+const exMap = {
+  EX1,
+  EX2,
+  EX3,
+  EX4,
+  EX5,
+  EX6,
+  EX7,
+  EX8,
+  EX9,
+  EX10,
+  EX11,
+  EX12
+}
 
+const search = (function () {
+  let json = {}
+  if (location.search) {
+    location.search.slice(1).split('&').map(item => {
+      let arr = item.split('=')
+      json[arr[0]] = arr[1]
+    })
+    return json
+  }
+  return json
+})()
+
+let ex = search.ex || 'EX12'
+
+exMap[ex]()
