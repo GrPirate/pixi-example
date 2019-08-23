@@ -14,5 +14,5 @@ import EX12 from './example/ex12'
 
 // EX1()
 // EX2()
-EX12()
+EX11()
 
